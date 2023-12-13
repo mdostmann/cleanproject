@@ -1,9 +1,12 @@
 package de.dhbw.cleanproject.domain.book;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.util.UUID;
 import org.apache.commons.lang3.Validate;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity

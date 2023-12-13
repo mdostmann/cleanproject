@@ -14,7 +14,8 @@
     <artifactId>0-cleanproject-plugins</artifactId>
 
     <properties>
-        <db.properties>src/main/resources/application.properties</db.properties>
+        <postgres.version>42.7.1</postgres.version>
+        <flyway.version>10.2.0</flyway.version>
     </properties>
 
     <build>
@@ -22,11 +23,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <version>3.11.0</version>
                 <configuration>
                     <debug>true</debug>
-                    <source>11</source>
-                    <target>11</target>
+                    <source>21</source>
+                    <target>21</target>
                 </configuration>
             </plugin>
 
@@ -57,7 +58,7 @@
             <plugin>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
-                <version>9.15.1</version>
+                <version>${flyway.version}</version>
                 <configuration>
                     <url>${spring.datasource.url}</url>
                     <user>${spring.datasource.username}</user>
@@ -68,7 +69,7 @@
                     <dependency>
                         <groupId>org.postgresql</groupId>
                         <artifactId>postgresql</artifactId>
-                        <version>42.5.4</version>
+                        <version>${postgres.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -82,7 +83,7 @@
                     <dependency>
                         <groupId>org.postgresql</groupId>
                         <artifactId>postgresql</artifactId>
-                        <version>42.5.4</version>
+                        <version>${postgres.version}</version>
                     </dependency>
                 </dependencies>
 
@@ -118,13 +119,20 @@
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
-            <version>9.15.1</version>
+            <version>${flyway.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-database-postgresql</artifactId>
+            <version>${flyway.version}</version>
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.5.4</version>
+            <version>${postgres.version}</version>
         </dependency>
 
         <dependency>
